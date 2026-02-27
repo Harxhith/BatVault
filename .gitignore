@@ -22,4 +22,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Secrets — never commit these
 .env
+.env.*
+!.env.example
+
+# Netlify cache
+.netlify
+
+# Android build artifacts & signing secrets
+android/app/build/
+android/build/
+android/app/release/
+android/app/google-services.json
+*.keystore
+*.jks
