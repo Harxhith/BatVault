@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 35% 5%;
+    --foreground: 0 0% 90%;
+
+    --card: 220 35% 8%;
+    --card-foreground: 0 0% 90%;
+
+    --popover: 220 35% 5%;
+    --popover-foreground: 0 0% 90%;
+
+    --primary: 48 97% 65%;
+    --primary-foreground: 220 35% 5%;
+
+    --secondary: 210 30% 32%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 215 20% 15%;
+    --muted-foreground: 215 10% 65%;
+
+    --accent: 220 100% 30%;
+    --accent-foreground: 0 0% 90%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 90%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 20%;
+    --ring: 199 80% 64%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-batman text-batman-foreground;
+    font-feature-settings: "ss01", "ss02";
+  }
+
+  .batcard {
+    @apply bg-batman-muted rounded-lg border border-batman-secondary/20 shadow-lg backdrop-blur-sm;
+  }
+
+  .bat-highlight {
+    @apply text-batman-accent animate-glow;
+  }
+
+  .bat-grad-bg {
+    @apply bg-gradient-to-br from-batman via-batman-muted to-batman-secondary;
+  }
+}
+
+/* Safe area insets — mobile only (phone browsers with notches/home indicators) */
+@media (max-width: 767px) {
+  .mobile-safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .mobile-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .mobile-sheet-header-top {
+    padding-top: calc(1rem + env(safe-area-inset-top));
+  }
+
+  .content-area-padding {
+    padding-top: calc(4rem + env(safe-area-inset-top));
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Desktop: no safe area insets needed, use flat padding */
+@media (min-width: 768px) {
+  .content-area-padding {
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: auto;
+  }
+}
