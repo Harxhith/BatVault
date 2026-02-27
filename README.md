@@ -20,11 +20,6 @@ A sleek, AI-powered finance tracker — available as a **web app** and **Android
   <br/><b>🤖 AI Finance Assistant</b>
 </p>
 
-<p align="center">
-  <img src="./previews/history.png" width="100%" alt="History" />
-  <br/><b>📋 Transaction History</b>
-</p>
-
 ### 📱 Mobile App (Android APK)
 
 <!-- PC: side by side | Mobile: one below other -->
