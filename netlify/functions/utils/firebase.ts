@@ -3,19 +3,13 @@
  * Uses only fetch + env vars — NO firebase-admin / service account needed.
  *
  * Required env vars:
- *   FIREBASE_PROJECT_ID  (e.g. "batvault")
- *   FIREBASE_API_KEY     (or VITE_FIREBASE_API_KEY) — the web API key
+ *   VITE_FIREBASE_PROJECT_ID  (e.g. "batvault")
+ *   VITE_FIREBASE_API_KEY     — the web API key
  */
 
-const PROJECT_ID =
-  process.env.FIREBASE_PROJECT_ID ||
-  process.env.VITE_FIREBASE_PROJECT_ID ||
-  '';
+const PROJECT_ID = process.env.VITE_FIREBASE_PROJECT_ID || '';
 
-const API_KEY =
-  process.env.FIREBASE_API_KEY ||
-  process.env.VITE_FIREBASE_API_KEY ||
-  '';
+const API_KEY = process.env.VITE_FIREBASE_API_KEY || '';
 
 const FIRESTORE_BASE = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents`;
 

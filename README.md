@@ -59,8 +59,8 @@ React + TypeScript · Vite · Tailwind CSS · shadcn/ui · Firebase (Auth + Fire
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/harxhith/bat-vault.git
-cd bat-vault
+git clone https://github.com/harxhith/batvault.git
+cd batvault
 npm install
 ```
 
@@ -79,7 +79,7 @@ VITE_FIREBASE_APP_ID=your_app_id
 VITE_GEMINI_API_KEY=your_gemini_api_key
 ```
 
-Also set `FIREBASE_API_KEY` and `FIREBASE_PROJECT_ID` in your **Netlify environment variables**.
+> **Note:** Make sure to also add all these environment variables in your **Netlify Project Settings** before deploying.
 
 ### 3. Firebase Setup
 
@@ -119,12 +119,6 @@ npx cap open android      # Open in Android Studio, then build APK
 | `npm run build`            | Production build         |
 | `npm run build:android`    | Build + sync for Android |
 | `npm run cap:open:android` | Open Android Studio      |
-
----
-
-## 🤝 Contributing
-
-1. Fork → create a branch → commit → open a PR.
 
 ---
 
