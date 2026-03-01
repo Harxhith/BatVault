@@ -26,11 +26,11 @@ A sleek, AI-powered finance tracker — available as a **web app** and **Android
 <table align="center">
   <tr>
     <td align="center">
-      <img src="./previews/mobile/dashboard.jpeg" width="220" alt="Dashboard" /><br/>
+      <img src="./previews/mobile/dashboard.jpeg" width="140" alt="Dashboard" /><br/>
       <b>📊 Dashboard</b>
     </td>
     <td align="center">
-      <img src="./previews/mobile/history.jpeg" width="220" alt="History" /><br/>
+      <img src="./previews/mobile/history.jpeg" width="140" alt="History" /><br/>
       <b>📋 History</b>
     </td>
   </tr>
