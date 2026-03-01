@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from "@/integrations/firebase/client";
-import { collection, query, getDocs, updateDoc, deleteDoc, doc, orderBy, where } from "firebase/firestore";
+import { collection, query, getDocs, updateDoc, deleteDoc, doc, where } from "firebase/firestore";
 import { callNetlifyFunction } from "@/utils/netlifyFunctions";
 import { useExpenses } from "@/context/ExpenseContext";
 import { useAuth } from "@/context/AuthContext";
