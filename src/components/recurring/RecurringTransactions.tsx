@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { db, functions } from "@/integrations/firebase/client";
-import { collection, query, getDocs, updateDoc, deleteDoc, doc, orderBy } from "firebase/firestore";
+import { db } from "@/integrations/firebase/client";
+import { collection, query, getDocs, updateDoc, deleteDoc, doc, orderBy, where } from "firebase/firestore";
 import { callNetlifyFunction } from "@/utils/netlifyFunctions";
 import { useExpenses } from "@/context/ExpenseContext";
+import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PlusCircle, MinusCircle, Edit, Trash2, RotateCcw, Calendar, DollarSign, CircleSlash, Play } from "lucide-react";
+import { PlusCircle, MinusCircle, Edit, Trash2, RotateCcw, Calendar, CircleSlash, Play } from "lucide-react";
 import { RecurringTransactionForm } from "./RecurringTransactionForm";
 import { toast } from "sonner";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { format } from "date-fns";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -53,6 +46,7 @@ interface RecurringTransaction {
 
 export const RecurringTransactions: React.FC = () => {
   const { categories, refreshData } = useExpenses();
+  const { currentUser } = useAuth();
   const [transactions, setTransactions] = useState<RecurringTransaction[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<"add" | "manage">("manage");
@@ -61,10 +55,11 @@ export const RecurringTransactions: React.FC = () => {
   const [processingTransactions, setProcessingTransactions] = useState(false);
 
   const fetchTransactions = async () => {
+    if (!currentUser) return;
     setLoading(true);
     try {
       const recurringRef = collection(db, "recurring_transactions");
-      const q = query(recurringRef, orderBy("next_run_date", "asc"));
+      const q = query(recurringRef, where("user_id", "==", currentUser.uid));
       const snapshot = await getDocs(q);
       
       const data = snapshot.docs.map(docSnap => ({
@@ -81,7 +76,9 @@ export const RecurringTransactions: React.FC = () => {
         };
       });
       
-      setTransactions(enrichedData);
+      const sortedData = enrichedData.sort((a, b) => new Date(a.next_run_date).getTime() - new Date(b.next_run_date).getTime());
+      
+      setTransactions(sortedData);
     } catch (error) {
       console.error("Error fetching recurring transactions:", error);
       toast.error("Failed to load recurring transactions");
