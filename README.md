@@ -11,8 +11,8 @@ A sleek, AI-powered finance tracker — available as a **web app** and **Android
 <!-- Add your app screenshots here (place images in a previews/ folder) -->
 
 <p align="center">
-  <img src="./previews/dashboard.png" width="450" alt="Dashboard" />
-  <img src="./previews/ai.png" width="450" alt="AI Assistant" />
+  <img src="./previews/dashboard.png" width="800" alt="Dashboard" />
+  <img src="./previews/ai.png" width="800" alt="AI Assistant" />
 </p>
 
 ### 📱 Mobile App (Android APK)
