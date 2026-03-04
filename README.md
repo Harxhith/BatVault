@@ -115,4 +115,4 @@ npx cap open android      # Open in Android Studio, then build APK
 
 ## 📄 License
 
-[MIT](LICENSE)
+This software is provided "as-is" under the [MIT License](LICENSE). Feel free to fork, modify, and contribute to the project!
